@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nike Landing Page</title>
+    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        /* Basic Styles for Debugging */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            
+        }
+        .home {
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+        .img-bx {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 200px;
+        }
+        .new-shoes {
+            height: 200vh; /* Ensure there's enough space to scroll */
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            flex-wrap: nowrap;
+            overflow-x: auto; /* Allow horizontal scrolling */
+            z-index: 999;
+            
+        }
+        .card {
+            width: 200px;
+            height: 300px;
+            background: lightgrey;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            z-index: 999;
+            
+            
+            
+        }
+        .card img {
+            max-width: 100%;
+            max-height: 100%;
+        }
+    </style>
+</head>
+<body>
+    <div class="overlay">
+        <p><i>Nike</i></p>
+    </div>
+    <header class="header">
+        <div class="logo">
+            <img id="logo1" src="./assets/logo.png" alt="Nike Logo">
+        </div>
+        <nav>
+            <ul class="menu">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#men">Men</a></li>
+                <li><a href="#women">Women</a></li>
+                <li><a href="#kids">Kids</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <i class="fa-solid fa-cart-shopping" id="cart"></i>
+            <i class="fa-solid fa-bars" id="toggle"></i>
+        </nav>
+    </header>
+    <section class="home">
+        <div class="content-bx">
+            <h3>just do it.</h3>
+            <h2>Nike Air Zoom 38</h2>
+            <p class="detail">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio a corrupti consectetur qui doloremque culpa 
+                eveniet quasi reiciendis eligendi maxime? Voluptates 
+                minima harum sunt, rem repellat error quos.
+            </p>
+            <button>Learn More</button>
+            <div class="social-icons">
+                <a href="https://instagram.com" aria-label="Instagram" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+                <a href="https://facebook.com" aria-label="Facebook" target="_blank"><i class="fa-brands fa-facebook"></i></a>
+                <a href="https://twitter.com" aria-label="Twitter" target="_blank"><i class="fa-brands fa-twitter"></i></a>
+                <a href="https://whatsapp.com" aria-label="WhatsApp" target="_blank"><i class="fa-brands fa-whatsapp"></i></a>
+            </div>
+        </div>
+        <div class="img-bx">
+            <img id="s1" src="./assets/1-removebg-preview.png" alt="Nike Air Zoom 38">
+        </div>
+    </section>
+    <section class="new-shoes">
+        <div class="card">
+            <img id="s3" src="./assets/BLAZER_LOW_PRO_GT-removebg-preview.png" alt="Shoe 1">
+            <div class="card-content">
+                <h4>Shoe Model 1</h4>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            </div>
+        </div>
+        <div class="card">
+            <img src="" alt="">
+            <div class="card-content">
+                <h4>Shoe Model 2</h4>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            </div>
+        </div>
+        <div class="card">
+            <img id="s2" src="./assets/NIKE_ZOOMX_INVINCIBLE_RN_3_OLY-removebg-preview.png" alt="Shoe 3">
+            <div class="card-content">
+                <h4>Shoe Model 3</h4>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            </div>
+        </div>
+     
+
+    </section>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" integrity="sha512-7eHRwcbYkK4d9g/6tD/mhkf++eoTHwpNM9woBxtPUBWm67zeAfFC+HrdoE2GanKeocly/VxeLvIqwvCdk7qScg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" integrity="sha512-onMTRKJBKz8M1TnqqDuGBlowlH0ohFzMXYRNebz+yOcc5TQr/zAKsthzhuv0hiyUKEiQEQXEynnXCvNTOk50dg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script>
+        gsap.registerPlugin(ScrollTrigger);
+
+        gsap.to("#s1", {
+            scale: 0.3,
+            zIndex:1000,
+            x: -460,  // Move image horizontally
+            y: 1140,  // Move image vertically
+            scrollTrigger: {
+                trigger: ".home",
+                start: "top top",
+                end: "bottom top",
+                scrub: true,
+                markers: false, // Debugging aid
+            }
+        });
+        gsap.to("#logo1", {
+            scale: 2,
+            zIndex:0,
+            x: 700,  // Move image horizontally
+            y: 200,  // Move image vertically
+            scrollTrigger: {
+                trigger: ".home",
+                start: "0% 0%",
+                end: "bottom top",
+                scrub: true,
+                markers: false, // Debugging aid
+            }
+        });
+        gsap.to("#s2", {
+            scale: 2.5,
+            zIndex:0,
+            x: -800,  // Move image horizontally
+            y: 600,  // Move image vertically
+            scrollTrigger: {
+                trigger: ".card",
+                start: "40% 50%",
+                end: "bottom top",
+                scrub: true,
+                markers: false, // Debugging aid
+            }
+        });
+        gsap.to(".detail", {
+            scale: 1.5,
+            zIndex:0,
+            x: 850,  // Move image horizontally
+            y: 1800,  // Move image vertically
+            scrollTrigger: {
+                trigger: ".card",
+                start: "40% 50%",
+                end: "bottom top",
+                scrub: true,
+                markers: false, // Debugging aid
+            }
+        });
+
+
+    </script>
+</body>
+</html>
